@@ -3,11 +3,12 @@ import {
   FileOutlined,
 } from '@ant-design/icons';
 import UploadComponent from './UploadComponent';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const UploadPage = () => {
+  const navigate = useNavigate();
     return (
       <div>
-        <Button type='primary'><FileOutlined/> Assignment 1 : Stopwatch</Button>
+        <Button type='primary'><FileOutlined/> Assignment 1 : Resume website</Button>
         <div
           style={{
             backgroundColor:'white',
@@ -16,12 +17,12 @@ const UploadPage = () => {
             paddingTop:'0.1%',
             paddingLeft:'2%',
             paddingBottom:'0.5%',
-            marginTop:'1%'
+            marginTop:'1%',
             }}
         >
       <p><b>Description:</b> <br></br>
       <span style={{display:'inline-block', width: '20px'}}></span>
-      Create a Stopwatch using HTML, CSS and Javascript</p>
+      Re-create your resume as a website using HTML and CSS</p>
         </div>
           <div 
           style={{
@@ -36,9 +37,9 @@ const UploadPage = () => {
               margin:'2%',
             }}
           >
-            <Button type='primary'><Link to="/assignments/upload/success">Submit</Link></Button>
+            <Button type='primary' onClick={()=>navigate('/assignments/upload/success')}>Submit</Button>
             <span style={{display:'inline-block', width: '3%'}}></span>
-            <Button><Link to="/assignments">Cancel</Link></Button>
+            <Button onClick={()=>navigate('/assignments')}>Cancel</Button>
           </div>
       </div>
     );
