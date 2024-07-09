@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+/* 
+// This import is commented to focus on Front-end assignment submission
 import {
   DesktopOutlined,
   FileOutlined,
@@ -7,6 +9,11 @@ import {
   UserOutlined,
   LeftOutlined,
   SettingOutlined,
+} from '@ant-design/icons'; */
+import {
+  DesktopOutlined,
+  UserOutlined,
+  LeftOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button } from 'antd';
 import { Link } from 'react-router-dom';
@@ -19,9 +26,11 @@ function getItem(label, key, icon, children) {
     label,
   };
 }
+/* 
+// This list is commented to focus on Front-end assignment submission
 const items = [
   getItem(<Link to="/dashboard">Dashboard</Link>, '1', <PieChartOutlined />),
-  getItem(<Link to="/courses">Courses</Link>, '2', <DesktopOutlined />),
+  getItem(<Link to="/">Courses</Link>, '2', <DesktopOutlined />),
   getItem(<Link to="/assignments">Assignments</Link>, '3', <UserOutlined />),
   getItem(<Link to="/Notes">Notes</Link>, '4', <FileOutlined/>),
   getItem(<Link to="/Teams">Teams</Link>, 'sub1', <TeamOutlined />, 
@@ -30,6 +39,10 @@ const items = [
     getItem(<Link to="/Team2">Team2</Link>, '7')
     ]),
   getItem(<Link to={"settings"}>Settings</Link>, '8', <SettingOutlined />),
+]; */
+const items = [
+  getItem(<Link to="/">Courses</Link>, '1', <DesktopOutlined />),
+  getItem(<Link to="/assignments">Assignments</Link>, '2', <UserOutlined />),
 ];
 const SideMenu = () => {
   const [collapsed, setCollapsed] = useState(false);

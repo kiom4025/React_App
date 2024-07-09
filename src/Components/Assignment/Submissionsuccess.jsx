@@ -10,7 +10,7 @@ const SubmissionSuccess = () => {
     title="Assignment Submitted Successfully"
     subTitle="Master the Art of Studying: Your Pathway to Success Awaits."
     extra={[
-      <Button type="primary" key="console" onClick={()=>navigate('/dashboard')}>Go Home</Button>,
+      <Button type="primary" key="console" onClick={()=>navigate('/')}>Go Home</Button>,
       <Button key="buy" onClick={()=>navigate('/assignments/upload')}>Submit Again</Button>,
     ]}
   />
