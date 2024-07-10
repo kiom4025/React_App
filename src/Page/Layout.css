@@ -20,3 +20,11 @@
     margin-left: 2%;
     border-radius: 10px;
 }
+
+.ant-ribbon-wrapper{
+    width: fit-content;
+}
+
+.ant-card .ant-card-body {
+    padding: 12px;
+}
