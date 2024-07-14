@@ -1,6 +1,6 @@
 import React from 'react';
 import { Space, Table, Tag, Button } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function AssignmentTable(){
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function AssignmentTable(){
       title: 'S.No',
       dataIndex: 'serialNo',
       // key: 'serialNo',
-      render: (text) => <a>{text}</a>,
+      // render: (text) => <a>{text}</a>,
     },
     {
       title: 'Topic',
@@ -86,7 +86,7 @@ function AssignmentTable(){
   ];
 
   return(
-<Table columns={columns} dataSource={data} style={{marginTop:"3%"}} />
+<Table columns={columns} dataSource={data} style={{marginTop:"3%", width:'100%', display:'grid', justifyContent:'stretch'}} />
   )
 }
 

@@ -18,7 +18,7 @@ const Mainlayout = () => {
       <PageContent/>
       </Layout>
     <Footer style={{ textAlign: 'center' }}>
-          LMS ©{new Date().getFullYear()} Created by Moki
+    Cloudline Technologies ©{new Date().getFullYear()} Created by Moki
     </Footer>
 
   </Layout>

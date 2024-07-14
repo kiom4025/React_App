@@ -2,20 +2,70 @@ import React from 'react';
 import {
   ClockCircleTwoTone,
 } from '@ant-design/icons';
-import { Badge, Card, Rate, Button, Space, Typography, } from 'antd';
+import { Badge, Card, Rate, Button, Space, Typography, Divider, List } from 'antd';
 import { useNavigate } from 'react-router-dom';
 const { Text, Paragraph, Link } = Typography;
 
+const data = [
+  {
+    title: 'Full Stack Development',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    difficultyLevel: 'Advanced',
+    duration: '3 months',
+    instructor: 'Mathiarasan',
+    rating: 4,
+    ratingNumbers: 611,
+    offerPercent: 15,
+  },
+  {
+    title: 'Data Structure and Algorithms',
+    description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+    difficultyLevel: 'Intermediate',
+    duration: '15hr 20min',
+    instructor: 'Mathiarasan',
+    rating: 2.5,
+    ratingNumbers: 81,
+    offerPercent: 25,
+  },
+  {
+    title: 'Python',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    difficultyLevel: 'Intermediate',
+    duration: '1 month',
+    instructor: 'Mathiarasan',
+    rating: 3,
+    ratingNumbers: 122,
+    offerPercent: 10,
+  },
+  {
+    title: 'Database',
+    description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+    difficultyLevel: 'Intermediate',
+    duration: '22hr 12min',
+    instructor: 'Mathiarasan',
+    rating: 2.5,
+    ratingNumbers: 52,
+    offerPercent: 25,
+  },
+  
+];
 
 function CustomCourseCard() {
   const navigate = useNavigate();
   return (
-
-    <Badge.Ribbon text="15% off" placement='end'>
+    <List
+    grid={{
+      gutter: 50,
+    }}
+    style={{display:'flex', justifyContent:'center'}}
+    dataSource={data}
+    renderItem={(item) => (
+      <List.Item style={{marginTop:'12%',}}>
+    <Badge.Ribbon text={item.offerPercent + "% off"} placement='end'>
       <Card
         style={{
           width: 250,
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.20)',
+          boxShadow: '2px 4px 12px rgba(0, 0, 0, 0.15)',
           borderRadius: '12px',
         }}
         cover={
@@ -27,8 +77,8 @@ function CustomCourseCard() {
 
       >
         <Space direction='vertical' size={''}>
-          <Button type="primary" size='small'>Intermediate</Button>
-          <Text strong>Data Structure and Algorithms</Text>
+          <Button type="primary" size='small'>{item.difficultyLevel}</Button>
+          <Text strong>{item.title}</Text>
           <Paragraph
             ellipsis={
               {
@@ -38,35 +88,20 @@ function CustomCourseCard() {
               }
             }
             type='secondary'
-            style={{ fontSize: 11, marginBottom:'3px'}}
+            style={{ fontSize: 11, marginBottom: '3px' }}
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            {item.description}
           </Paragraph>
 
-          <Text type="secondary" style={{ fontSize: 11,}}>Created by: Web Workflow</Text>
+          <div style={{ marginTop: '5px' }}><ClockCircleTwoTone />&nbsp;<Link>Duration:&nbsp;</Link><Text>{item.duration}</Text></div>
 
-          <div style={{ display: 'flex', alignItems: 'start', marginBottom: '5px', marginTop:'2px'}}>
-            <Rate allowHalf defaultValue={3.5} style={{ fontSize: '15px' }} disabled={true} /><Text type="secondary" style={{ fontSize: 11, }}>&nbsp;(611 ratings)</Text>
+          <Text type="secondary" style={{ fontSize: 11, }}>Created by: {item.instructor}</Text>
+
+          <div style={{ display: 'flex', alignItems: 'start', marginBottom: '5px', marginTop: '2px' }}>
+          
+            <Rate allowHalf defaultValue={item.rating} style={{ fontSize: '15px' }} disabled={true} /><Text type="secondary" style={{ fontSize: 11, }}>&nbsp;({item.ratingNumbers} reviews)</Text>
           </div>
-
-          <div style={{marginTop:'5px'}}><ClockCircleTwoTone />&nbsp;<Link>Duration:&nbsp;</Link><Text>3hr 20min</Text></div>
-
-
-          <Space direction='vertical'>
-
-          </Space>
-
-          {/* <div style={{ width: 110, paddingLeft: 12, paddingRight: 12, paddingTop: 6, paddingBottom: 6, background: '#232323', borderRadius: 15, justifyContent: 'center', alignItems: 'center', gap: 15, display: 'inline-flex' }}>
-            <div style={{ justifyContent: 'center', alignItems: 'flex-start', display: 'flex', gap: 2 }}>
-              <div style={{ color: 'white', fontSize: 12, fontWeight: '400', wordWrap: 'break-word' }}>$</div>
-              <div style={{ color: '#2BD638', fontSize: 12, fontWeight: '500', wordWrap: 'break-word' }}>350</div>
-            </div>
-            <div style={{ justifyContent: 'center', alignItems: 'flex-start', display: 'flex', gap: 2 }}>
-              <div style={{ color: 'white', fontSize: 12, fontWeight: '400', textDecoration: 'line-through', wordWrap: 'break-word' }}>$</div>
-              <div style={{ color: 'white', fontSize: 12, fontWeight: '400', textDecoration: 'line-through', wordWrap: 'break-word' }}>450</div>
-            </div>
-          </div> */}
-
+          <Divider style={{ margin: '0px 4px' }} />
           <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: "10px" }}>
             <Button onClick={() => navigate('/courseDetails')}>Details</Button>
             <Button type='primary' onClick={() => navigate('/enrollPage')}>Enroll Now</Button>
@@ -74,7 +109,9 @@ function CustomCourseCard() {
         </Space>
       </Card>
     </Badge.Ribbon>
-
+</List.Item>
+)}
+/>
   );
 }
 export default CustomCourseCard;

@@ -1,4 +1,5 @@
-import { Layout, theme } from 'antd';
+import { Image, Layout, theme } from 'antd';
+import CompanyLogo from "../assets/logo-web.png";
 const { Header } = Layout;
 
 const PageHeader = () => {
@@ -12,7 +13,7 @@ const PageHeader = () => {
         padding: 0,
         background: colorBgContainer,
       }}>
-      
+      <Image height='40px' preview={false} src={CompanyLogo} style={{marginLeft:'10px'}}/>
     </Header>
   );
 };

@@ -12,7 +12,7 @@ const PageContent = () => {
   return (
     <Content
         style={{
-          margin: '1.5%',
+          margin: '2%',
         }}>
         {/* Note: changing the element of 'Path="/"' from this is dashboard content -to- this is courses content for focus on Front-end assignement completion and making the course page as the defauld landing page*/}
       <Routes>  {/* Replaced Switch with Routes in React Router v6 */}
@@ -26,7 +26,7 @@ const PageContent = () => {
         <Route path="/assignments/upload/success" element={<SubmissionSuccess/>} />
         {/* <Route path="/notes" element={<>this is notes content</>} /> */}
       </Routes>
-    </Content>
+    </Content>  
   );
 };
 export default PageContent;
