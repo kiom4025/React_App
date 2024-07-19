@@ -14,6 +14,7 @@ import {
   DesktopOutlined,
   UserOutlined,
   LeftOutlined,
+  RightOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button } from 'antd';
 import { Link } from 'react-router-dom';
@@ -46,11 +47,12 @@ const items = [
 ];
 const SideMenu = () => {
   const [collapsed, setCollapsed] = useState(false);
+  var collapseIcon = collapsed ? <RightOutlined /> : <LeftOutlined />;
   return (
     <Sider collapsible collapsed={collapsed} trigger={null}>
       {/* <div className="demo-logo-vertical" /> */}
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
-
+       
       <Button 
       type="text"
       block onClick={() => setCollapsed(!collapsed)} 
@@ -59,7 +61,7 @@ const SideMenu = () => {
         marginBottom:'5%'
         }}
       >
-      <LeftOutlined />
+      {collapseIcon}
       </Button>
     </Sider>
   );

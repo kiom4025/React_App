@@ -93,15 +93,15 @@ function CustomCourseCard() {
             {item.description}
           </Paragraph>
 
-          <div style={{ marginTop: '5px' }}><ClockCircleTwoTone />&nbsp;<Link>Duration:&nbsp;</Link><Text>{item.duration}</Text></div>
-
+          <div style={{ margin: '5px 0px' }}><ClockCircleTwoTone />&nbsp;<Link>Duration:&nbsp;</Link><Text>{item.duration}</Text></div>
+          <Divider style={{ margin: '0px 4px' }} />
           <Text type="secondary" style={{ fontSize: 11, }}>Created by: {item.instructor}</Text>
 
           <div style={{ display: 'flex', alignItems: 'start', marginBottom: '5px', marginTop: '2px' }}>
           
             <Rate allowHalf defaultValue={item.rating} style={{ fontSize: '15px' }} disabled={true} /><Text type="secondary" style={{ fontSize: 11, }}>&nbsp;({item.ratingNumbers} reviews)</Text>
           </div>
-          <Divider style={{ margin: '0px 4px' }} />
+          
           <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: "10px" }}>
             <Button onClick={() => navigate('/courseDetails')}>Details</Button>
             <Button type='primary' onClick={() => navigate('/enrollPage')}>Enroll Now</Button>
