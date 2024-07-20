@@ -15,11 +15,15 @@ const Mainlayout = () => {
     <PageHeader/>
       <Layout>
       <SideMenu/>
+      
+      <Layout>
       <PageContent/>
-      </Layout>
-    <Footer style={{ textAlign: 'center' }}>
+      <Footer style={{ textAlign: 'center' }}>
     Cloudline Technologies ©{new Date().getFullYear()} Created by Moki
     </Footer>
+      </Layout>
+      </Layout>
+    
 
   </Layout>
   );

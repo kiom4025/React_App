@@ -4,7 +4,7 @@ import {
   InboxOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { Button, Input, message, Upload } from 'antd';
+import { Button, Flex, Input, message, Space, Upload, Mentions } from 'antd';
 const { TextArea } = Input;
 const { Dragger } = Upload;
 
@@ -29,28 +29,64 @@ const Uploadprops = {
 };
 
 var assignmentDetails = {
-  title:"Assignment 1 : Resume website",
-  description:"Build your resume as a website using HTML and CSS"
+  title: "Assignment 1 : Resume website",
+  description: "Build your resume as a website using HTML and CSS"
 }
 
 const UploadPage = () => {
   const navigate = useNavigate();
-  function AssignmentSubmit(){
+  function AssignmentSubmit() {
     var uploadCommentCheck = document.getElementById('UploadComments');
-    if(uploadCommentCheck.textContent!=='' && uploadCommentCheck.textContent!==' '){ // Can use regex for more control
+    if (uploadCommentCheck.textContent !== '' && uploadCommentCheck.textContent !== ' ') { // Can use regex for more control
       console.log(uploadCommentCheck.textContent)
       navigate('/assignments/upload/success');
     }
-    else{
+    else {
       uploadCommentCheck.className = uploadCommentCheck.className + " ant-input-status-error"
     }
   }
-    return (
-      <div>
-        <Button type='primary' id='AssignmentTitleButton'><FileOutlined/> {assignmentDetails.title} </Button>
-        <div id='AssignementDescription'><b>Description:</b> {assignmentDetails.description}</div>
-          <div style={{margin:'3%'}}>
-            
+  return (
+    <div>
+      <Space
+        direction="vertical"
+        size="large"
+        style={{
+          display: 'flex',
+        }}
+      >
+        <Space
+          direction="vertical"
+          size="small"
+          style={{
+            display: 'flex',
+          }}
+        >
+          <Button type='primary'><FileOutlined /> {assignmentDetails.title} </Button>
+          <Mentions
+            style={{
+              width: '100%',
+            }}
+            placeholder="this is readOnly Mentions"
+            readOnly
+
+            value={assignmentDetails.description}
+          />
+        </Space>
+        <Space
+          direction="vertical"
+          size="middle"
+          style={{
+            display: 'flex',
+          }}
+        >
+          <Space
+            direction="vertical"
+            size="middle"
+            style={{
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
             <Dragger {...Uploadprops}> {/* Upload component - Start */}
               <p className="ant-upload-drag-icon">
                 <InboxOutlined />
@@ -61,22 +97,19 @@ const UploadPage = () => {
                 banned files.
               </p>
             </Dragger> {/* Upload component - End */}
-            
-            <br/><br/>
-            <TextArea rows={4} placeholder="Comments" id='UploadComments'/>
-          </div>
-          <div
-            style={{
-              display:'flex',
-              justifyContent:'center',
-              margin:'2%',
-            }}
-          >
-            <Button type='primary' onClick={AssignmentSubmit}>Submit</Button>
-            <span style={{display:'inline-block', width: '3%'}}></span>
-            <Button onClick={()=>navigate('/assignments')}>Cancel</Button>
-          </div>
-      </div>
-    );
-  };
-  export default UploadPage;
+          </Space>
+
+          <TextArea rows={4} placeholder="Comments" id='UploadComments' />
+        </Space>
+
+
+        <Flex justify='center'>
+          <Button type='primary' onClick={AssignmentSubmit}>Submit</Button>
+          <span style={{ display: 'inline-block', width: '3%' }}></span>
+          <Button onClick={() => navigate('/assignments')}>Cancel</Button>
+        </Flex>
+      </Space>
+    </div>
+  );
+};
+export default UploadPage;
