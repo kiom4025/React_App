@@ -1,14 +1,18 @@
 import React from 'react';
 import { Button, Flex, Form, Input, Select, DatePicker } from 'antd';
 const { Option } = Select;
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
 // const onChange = (e) => {
 //   console.log('Change:', e.target.value);
 // };
 const AssignmentForm = () => {
   const [form] = Form.useForm();
+  const onReset = ()=>{
+    form.resetFields();
+  }
+  const onFinish = (values) => {
+    console.log('Success:', values);
+    onReset();
+  };
   return (
     <Form
       form={form}
@@ -99,7 +103,7 @@ const AssignmentForm = () => {
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
-          <Button danger onClick={() => form.resetFields()}>
+          <Button danger onClick={onReset}>
             Reset
           </Button>
         </Flex>

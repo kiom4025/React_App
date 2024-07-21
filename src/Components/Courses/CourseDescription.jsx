@@ -27,7 +27,20 @@ const items = [
   },
   {
     key: '5',
-    label: 'Status',
+    // label: 'Status',
+    label: (
+      <>
+        Status /
+        <br />
+        Available Slot
+      </>
+    ),
+    /* Note: Set a condition to the data of this.
+        1. Data obtained from 'Available slot' field of the course creation form will be populated here
+        2. If the date is past current date then the course is set to be live
+        3. If not then next available slot is shown
+        4. If there is no data then it should say "Contact support team"
+    */
     children: <Badge status="processing" text="Live" />,
     span: 3,
   },
