@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge, Descriptions } from 'antd';
+import LearningPlan from './LearningPlan';
 const items = [
   {
     key: '1',
@@ -82,6 +83,14 @@ const items = [
         <br />
         - Sunday Doubt Clearing Sessions
       </>
+    ),
+    span: 4,
+  },
+  {
+    key: '11',
+    label: 'Learning Plan',
+    children: (
+      <LearningPlan />
     ),
     span: 4,
   },

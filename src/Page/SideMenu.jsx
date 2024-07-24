@@ -3,7 +3,7 @@ import {
   DesktopOutlined,
   UserOutlined,
   PlusCircleOutlined,
-  PieChartOutlined,
+  DashboardOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
@@ -18,7 +18,7 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem(<Link to="/">Dashboard</Link>, "1", <PieChartOutlined />),
+  getItem(<Link to="/">Dashboard</Link>, "1", <DashboardOutlined />),
   getItem(<Link to="/courses">Courses</Link>, '2', <DesktopOutlined />),
   getItem(<Link to="/assignments">Assignments</Link>, '3', <UserOutlined />),
 ];

@@ -69,7 +69,7 @@ const LoginComponent = () => (
       }}
     >
       <Button type="primary" htmlType="submit">
-        Submit
+        Sign In
       </Button>
     </Form.Item>
   </Form>
