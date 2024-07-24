@@ -4,10 +4,10 @@ import AssignmentTable from '../Components/Assignment/Assignment-Table';
 import UploadPage from '../Components/Assignment/UploadPage';
 import SubmissionSuccess from '../Components/Assignment/Submissionsuccess';
 import CustomCourseCard from '../Components/Courses/CourseCard';
-import CourseDetails from '../Components/Courses/CourseDescription';
 import ModifyPage from '../Components/Add-Modify/ModifyPage';
 import CourseForm from '../Components/Add-Modify/CourseForm';
 import AssignmentForm from '../Components/Add-Modify/AssignmentForm';
+import CoursePage from '../Components/Courses/CoursePage';
 
 
 const { Content } = Layout;
@@ -21,7 +21,7 @@ const PageContent = () => {
       <Routes>  {/* Replaced Switch with Routes in React Router v6 */}
         <Route path="/" element={<>This is Dashboard</>} />
         <Route path="/courses" element={<CustomCourseCard />} />
-        <Route path="/courseDetails" element={<CourseDetails />} />
+        <Route path="/courseDetails" element={<CoursePage />} />
         <Route path="/enrollPage" element={<>This is enroll page</>} />
         <Route path="/editContent/" element={<ModifyPage />}>
           <Route path="editAssignment" element={<AssignmentForm />} />

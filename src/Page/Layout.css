@@ -1,12 +1,12 @@
-.ant-upload-wrapper{
+.ant-upload-wrapper {
     display: flex;
 }
 
-.ant-upload-list{
+.ant-upload-list {
     margin: 1% 5%;
 }
 
-.ant-ribbon-wrapper{
+.ant-ribbon-wrapper {
     width: fit-content;
 }
 
