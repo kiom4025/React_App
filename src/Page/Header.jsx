@@ -14,7 +14,6 @@ const PageHeader = () => {
       style={{
         padding: 0,
         background: colorBgContainer,
-
       }}>
       <Flex align='baseline' justify='space-between'>
         <Image height='40px' preview={false} src={CompanyLogo} style={{ marginLeft: '10px' }} />

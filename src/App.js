@@ -1,12 +1,12 @@
 // import './App.css';
-import LoginPage from "./Components/Login/LoginPage";
+import { LoginProvider } from "./Components/Context/LoginContextapi";
 import Mainlayout from "./Page/Layout";
-
 
 function App() {
   return (
-    <Mainlayout />
-    // <LoginPage />
+    <LoginProvider>
+      <Mainlayout />
+    </LoginProvider>
   );
 }
 

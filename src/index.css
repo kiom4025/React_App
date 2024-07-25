@@ -18,10 +18,12 @@ code {
   background: #ffffff url(./assets/LoginBG.jpg) fixed center;
 }
 
+/* The following is not used for now since it applies center align even when a required message is show for the mandatory filed */
+/* 
 .ant-form-item-row {
   display: flex;
   align-items: center;
-}
+} */
 
 
 /* 
