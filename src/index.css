@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#LoginPage1 {
+  min-height: 100vh;
+  padding: 2%;
+  background: #ffffff url(./assets/LoginBG.jpg) fixed center;
+}
+
+.ant-form-item-row {
+  display: flex;
+  align-items: center;
+}
+
+
+/* 
+Background Shorthand:
+
+Normal Code:
+---------------
+body {
+  background-color: #ffffff;
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+Shorthand:
+---------------
+body {
+  background: #ffffff url("img_tree.png") no-repeat right top;
+}
+
+Note: When using the shorthand property the order of the property values is:
+1. background-color
+2. background-image
+3. background-repeat
+4. background-attachment
+5. background-position
+
+*/

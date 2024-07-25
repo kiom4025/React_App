@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Flex, Form, Input, Select, Rate, DatePicker, InputNumber } from 'antd';
+import { Button, Flex, Form, Input, Select, Rate, DatePicker, InputNumber, Upload } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 // const onChange = (e) => {
@@ -7,7 +8,7 @@ const { Option } = Select;
 // };
 const CourseForm = () => {
   const [form] = Form.useForm();
-  const onReset = ()=>{
+  const onReset = () => {
     form.resetFields();
   }
   const onFinish = (values) => {
@@ -29,6 +30,25 @@ const CourseForm = () => {
       }}
       onFinish={onFinish}
     >
+
+      <Form.Item
+        name="courseThumnail"
+        label="Course Thumbnail"
+        rules={[
+          {
+            required: true,
+            message: 'Thumbnail required',
+          },
+        ]}
+      >
+        <Upload
+          action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+          listType="picture"
+          maxCount={1}
+        >
+          <Button icon={<UploadOutlined />}>Upload (Max: 1)</Button>
+        </Upload>
+      </Form.Item>
 
       <Form.Item
         name="courseTitle"

@@ -25,7 +25,7 @@ const items = [
 function Loginpage() {
     return (
         // <div>
-        <Flex justify='center' align='center' style={{ minHeight: '100vh', margin: '2%' }}>
+        <Flex justify='center' align='center' id='LoginPage1'>
             <Row justify='center' align='middle' style={{ display: 'Flex', alignItems: 'center' }}>
                 <Col ><Image preview={false} src={CompanyLogo} /></Col>
                 <Col>
@@ -34,7 +34,9 @@ function Loginpage() {
                         items={items}
                         onChange={onChange}
                         // size='large' 
-                        style={{ margin: '2%' }}
+                        style={{
+                            padding: '2%',
+                        }}
                     />
                 </Col>
             </Row>
