@@ -1,34 +1,38 @@
-import React, { useState } from 'react';
-import {
+import React, { useContext, useState } from 'react';
+/* import {
   DesktopOutlined,
   UserOutlined,
   PlusCircleOutlined,
   DashboardOutlined,
-} from '@ant-design/icons';
+} from '@ant-design/icons'; */
 import { Layout, Menu } from 'antd';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+// import { Link, useLocation } from 'react-router-dom';
+import { LoginContextapi } from '../Components/Context/LoginContextapi';
 
 const { Sider } = Layout;
-function getItem(label, key, icon, children) {
+/* function getItem(label, key, icon, children) {
   return {
     key,
     icon,
     children,
     label,
   };
-}
+} */
 
-const items = [
-  getItem(<Link to="/">Dashboard</Link>, "1", <DashboardOutlined />),
-  getItem(<Link to="/courses">Courses</Link>, '2', <DesktopOutlined />),
-  getItem(<Link to="/assignments">Assignments</Link>, '3', <UserOutlined />),
-];
+// const items = [
+//   getItem(<Link to="/">Dashboard</Link>, "1", <DashboardOutlined />),
+//   getItem(<Link to="/courses">Courses</Link>, '2', <DesktopOutlined />),
+//   getItem(<Link to="/assignments">Assignments</Link>, '3', <UserOutlined />),
+// ];
 
 
-if (localStorage.getItem('isAdmin') === 'true') items.push(getItem(<Link to="/editContent">Add / Modify</Link>, '4', <PlusCircleOutlined />));
+// if (localStorage.getItem('isAdmin') === 'true') items.push(getItem(<Link to="/editContent">Add / Modify</Link>, '4', <PlusCircleOutlined />));
 
 const SideMenu = () => {
+  const {items} =useContext(LoginContextapi);
   const [collapsed, setCollapsed] = useState(false);
+  
   /* Start - Hightlight sidemenu
 Requirement: To change sidebar highlight
 Credits: 
