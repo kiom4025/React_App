@@ -2,7 +2,7 @@ import React from 'react';
 import { Space, Table, Tag, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
-function AssignmentTable(){
+function AssignmentTable() {
   const navigate = useNavigate();
 
   const courseNames = ["HTML", "CSS", "Javascript", "React"];
@@ -51,7 +51,7 @@ function AssignmentTable(){
       // dataIndex: 'topic',
       render: (_, record) => (
         <Space size="middle">
-        <Button type="primary" onClick={()=>navigate('/assignments/upload')} id={'AssignmentTask_' + record.key}>Open</Button>
+          <Button type="primary" onClick={() => navigate('/assignments/upload')} id={'AssignmentTask_' + record.key}>Open</Button>
         </Space>
       ),
     },
@@ -61,7 +61,7 @@ function AssignmentTable(){
   const data = [
     {
       key: '1',
-      serialNo : '1',
+      serialNo: '1',
       topic: 'Resume website',
       duedate: 'Tomorrow',
       tags: [courseNames[0], courseNames[1]],
@@ -69,24 +69,27 @@ function AssignmentTable(){
     },
     {
       key: '2',
-      serialNo : '2',
+      serialNo: '2',
       topic: 'Stopwatch',
       duedate: '15 June 2024',
       tags: [courseNames[0], courseNames[1], courseNames[2]],
-      descriptionsText:'Use the provided base file and include the Lap Time functionality'
+      descriptionsText: 'Use the provided base file and include the Lap Time functionality'
     },
     {
       key: '3',
-      serialNo : '3',
+      serialNo: '3',
       topic: 'LMS Base Layout',
       duedate: '30 June 2024',
       tags: [courseNames[0], courseNames[1], courseNames[2], courseNames[3]],
-      descriptionsText:'Create a LMS Base layout from scratch in React',
+      descriptionsText: 'Create a LMS Base layout from scratch in React',
     },
   ];
 
-  return(
-<Table columns={columns} dataSource={data} style={{marginTop:"3%", width:'100%', display:'grid', justifyContent:'stretch'}} />
+  return (
+    <Table
+      columns={columns}
+      dataSource={data}
+    />
   )
 }
 

@@ -1,4 +1,79 @@
 import { createContext, useState } from "react";
+import {
+    DesktopOutlined,
+    UserOutlined,
+    PlusCircleOutlined,
+    DashboardOutlined,
+} from '@ant-design/icons';
+import { Link } from "react-router-dom";
+import { message } from "antd";
+
+const initialLoggedInState = localStorage.getItem('isloggedIn') === 'true';
+
+function getItem(label, key, icon, children) {
+    return {
+        key,
+        icon,
+        children,
+        label,
+    };
+}
+
+const items_Default = [
+    getItem(<Link to="/">Dashboard</Link>, "1", <DashboardOutlined />),
+    getItem(<Link to="/courses">Courses</Link>, '2', <DesktopOutlined />),
+    getItem(<Link to="/assignments">Assignments</Link>, '3', <UserOutlined />),
+];
+
+export const LoginContextapi = createContext();
+
+export function LoginProvider({ children }) {
+    const [checkLogin, setLogin] = useState(initialLoggedInState);
+    const [items, setSidemenu] = useState(items_Default);
+    const currentUser = localStorage.getItem('user');
+
+    function modifySidemenu(username) {
+        if (username === 'admin') {
+            var newSidemenuList = [...items_Default, getItem(<Link to="/editContent">Add / Modify</Link>, '4', <PlusCircleOutlined />)]
+            console.log(newSidemenuList);
+            return newSidemenuList;
+        } else {
+            console.log(items_Default);
+            return items_Default;
+        }
+    }
+
+    function Login(values) {
+        if (values.username === 'admin' && values.password === 'admin') {
+            setLogin(true);
+            localStorage.setItem('isloggedIn', 'true');
+            setSidemenu(modifySidemenu(values.username));
+            localStorage.setItem('user', values.username);
+        }
+        else if (values.username === 'moki' && values.password === 'moki') {
+            setLogin(true);
+            localStorage.setItem('isloggedIn', 'true');
+            setSidemenu(modifySidemenu(values.username));
+            localStorage.setItem('user', values.username);
+        }
+        else {
+            // alert("Credential doesn't Match");
+            message.error("Credential doesn't Match");
+        }
+    }
+
+    function Logout() {
+        setLogin(false);
+        localStorage.setItem('isloggedIn', 'false');
+        localStorage.removeItem('user');
+    }
+    return (
+        <LoginContextapi.Provider value={{ checkLogin, currentUser, items, Login, Logout }}>
+            {children}
+        </LoginContextapi.Provider>
+    );
+};
+
 
 /* 
 Context API Understandings:
@@ -22,45 +97,3 @@ in the children or sibling that needs access to these values or functions,
     ex: const {checkLogin, currentUser, Logout}=useContext(LoginContextapi);
 
 */
-const initialLoggedInState = localStorage.getItem('isloggedIn') === 'true';
-const initialUserState = localStorage.getItem('isAdmin') === 'true';
-
-export const LoginContextapi = createContext();
-
-export function LoginProvider({ children }) {
-    const [checkLogin, setLogin] = useState(initialLoggedInState);
-    const [adminCheck, setAdmin] = useState(initialUserState);
-    const currentUser = localStorage.getItem('user');
-
-
-    function Login(values) {
-        if (values.username === 'admin' && values.password === 'admin') {
-            setLogin(true);
-            localStorage.setItem('isloggedIn', 'true');
-            setAdmin(true);
-            localStorage.setItem('isAdmin', 'true');
-
-            localStorage.setItem('user', values.username);
-        }
-        else if (values.username === 'moki' && values.password === 'moki') {
-            setLogin(true);
-            localStorage.setItem('isloggedIn', 'true');
-            setAdmin(false);
-            localStorage.setItem('isAdmin', 'false');
-
-            localStorage.setItem('user', values.username);   
-        }
-        else {
-            alert("Credential doesn't Match");
-        }
-    }
-    function Logout() {
-        setLogin(false);
-        localStorage.setItem('isloggedIn', 'false');
-    }
-    return (
-        <LoginContextapi.Provider value={{ checkLogin, currentUser, adminCheck, Login, Logout }}>
-            {children}
-        </LoginContextapi.Provider>
-    );
-};
