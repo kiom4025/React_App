@@ -65,7 +65,7 @@ const AssignmentForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="skills-tag"
+        name="skillsTag"
         label="Skills Tag"
         rules={[
           {

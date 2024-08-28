@@ -20,11 +20,11 @@ function AssignmentTable() {
     },
     {
       title: 'Tags',
-      // key: 'tags',
-      dataIndex: 'tags',
-      render: (_, { tags }) => (
+      // key: 'skillsTag',
+      dataIndex: 'skillsTag',
+      render: (_, { skillsTag }) => (
         <>
-          {tags.map((tag) => {
+          {skillsTag.map((tag) => {
             {/* let color = tag.length > 5 ? 'geekblue' : 'green'; */}
             let color;
             if (tag === courseNames[0]) color = 'geekblue';
@@ -42,8 +42,8 @@ function AssignmentTable() {
     },
     {
       title: 'Due Date',
-      dataIndex: 'duedate',
-      key: 'duedate',
+      dataIndex: 'dueDate',
+      key: 'dueDate',
     },
     {
       title: 'Action',
@@ -63,25 +63,25 @@ function AssignmentTable() {
       key: '1',
       serialNo: '1',
       topic: 'Resume website',
-      duedate: 'Tomorrow',
-      tags: [courseNames[0], courseNames[1]],
-      descriptionsText: 'Re-Create your resume as a website using HTML and CSS',
+      dueDate: 'Tomorrow',
+      skillsTag: [courseNames[0], courseNames[1]],
+      description: 'Re-Create your resume as a website using HTML and CSS',
     },
     {
       key: '2',
       serialNo: '2',
       topic: 'Stopwatch',
-      duedate: '15 June 2024',
-      tags: [courseNames[0], courseNames[1], courseNames[2]],
-      descriptionsText: 'Use the provided base file and include the Lap Time functionality'
+      dueDate: '15 June 2024',
+      skillsTag: [courseNames[0], courseNames[1], courseNames[2]],
+      description: 'Use the provided base file and include the Lap Time functionality'
     },
     {
       key: '3',
       serialNo: '3',
       topic: 'LMS Base Layout',
-      duedate: '30 June 2024',
-      tags: [courseNames[0], courseNames[1], courseNames[2], courseNames[3]],
-      descriptionsText: 'Create a LMS Base layout from scratch in React',
+      dueDate: '30 June 2024',
+      skillsTag: [courseNames[0], courseNames[1], courseNames[2], courseNames[3]],
+      description: 'Create a LMS Base layout from scratch in React',
     },
   ];
 

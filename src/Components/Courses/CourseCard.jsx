@@ -8,44 +8,44 @@ const { Text, Paragraph, Link } = Typography;
 
 const data = [
   {
-    title: 'Full Stack Development',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    difficultyLevel: 'Advanced',
-    duration: '3 months',
-    instructor: 'Mathiarasan',
-    rating: 4,
-    ratingNumbers: 611,
-    offerPercent: 15,
+    courseTitle: 'Full Stack Development',
+    shortDescription: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    difficulty: 'Advanced',
+    courseDuration: '3 months',
+    createdBy: 'Mathiarasan',
+    ratingStarValue: 4,
+    reviewCount: 611,
+    discountPercentage: 15,
   },
   {
-    title: 'Data Structure and Algorithms',
-    description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-    difficultyLevel: 'Intermediate',
-    duration: '15hr 20min',
-    instructor: 'Mathiarasan',
-    rating: 2.5,
-    ratingNumbers: 81,
-    offerPercent: 25,
+    courseTitle: 'Data Structure and Algorithms',
+    shortDescription: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+    difficulty: 'Intermediate',
+    courseDuration: '15hr 20min',
+    createdBy: 'Mathiarasan',
+    ratingStarValue: 2.5,
+    reviewCount: 81,
+    discountPercentage: 25,
   },
   {
-    title: 'Python',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    difficultyLevel: 'Intermediate',
-    duration: '1 month',
-    instructor: 'Mathiarasan',
-    rating: 3,
-    ratingNumbers: 122,
-    offerPercent: 10,
+    courseTitle: 'Python',
+    shortDescription: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    difficulty: 'Intermediate',
+    courseDuration: '1 month',
+    createdBy: 'Mathiarasan',
+    ratingStarValue: 3,
+    reviewCount: 122,
+    discountPercentage: 10,
   },
   {
-    title: 'Database',
-    description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-    difficultyLevel: 'Intermediate',
-    duration: '22hr 12min',
-    instructor: 'Mathiarasan',
-    rating: 2.5,
-    ratingNumbers: 52,
-    offerPercent: 25,
+    courseTitle: 'Database',
+    shortDescription: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+    difficulty: 'Intermediate',
+    courseDuration: '22hr 12min',
+    createdBy: 'Mathiarasan',
+    ratingStarValue: 2.5,
+    reviewCount: 52,
+    discountPercentage: 25,
   },
   
 ];
@@ -61,7 +61,7 @@ function CustomCourseCard() {
     dataSource={data}
     renderItem={(item) => (
       <List.Item style={{marginTop:'12%',}}>
-    <Badge.Ribbon text={item.offerPercent + "% off"} placement='end'>
+    <Badge.Ribbon text={item.discountPercentage + "% off"} placement='end'>
       <Card
         style={{
           width: 250,
@@ -77,8 +77,8 @@ function CustomCourseCard() {
 
       >
         <Space direction='vertical' size={''}>
-          <Button type="primary" size='small'>{item.difficultyLevel}</Button>
-          <Text strong>{item.title}</Text>
+          <Button type="primary" size='small'>{item.difficulty}</Button>
+          <Text strong>{item.courseTitle}</Text>
           <Paragraph
             ellipsis={
               {
@@ -90,16 +90,16 @@ function CustomCourseCard() {
             type='secondary'
             style={{ fontSize: 11, marginBottom: '3px' }}
           >
-            {item.description}
+            {item.shortDescription}
           </Paragraph>
 
-          <div style={{ margin: '5px 0px' }}><ClockCircleTwoTone />&nbsp;<Link>Duration:&nbsp;</Link><Text>{item.duration}</Text></div>
+          <div style={{ margin: '5px 0px' }}><ClockCircleTwoTone />&nbsp;<Link>Duration:&nbsp;</Link><Text>{item.courseDuration}</Text></div>
           <Divider style={{ margin: '0px 4px' }} />
-          <Text type="secondary" style={{ fontSize: 11, }}>Created by: {item.instructor}</Text>
+          <Text type="secondary" style={{ fontSize: 11, }}>Created by: {item.createdBy}</Text>
 
           <div style={{ display: 'flex', alignItems: 'start', marginBottom: '5px', marginTop: '2px' }}>
           
-            <Rate allowHalf defaultValue={item.rating} style={{ fontSize: '15px' }} disabled={true} /><Text type="secondary" style={{ fontSize: 11, }}>&nbsp;({item.ratingNumbers} reviews)</Text>
+            <Rate allowHalf defaultValue={item.ratingStarValue} style={{ fontSize: '15px' }} disabled={true} /><Text type="secondary" style={{ fontSize: 11, }}>&nbsp;({item.reviewCount} reviews)</Text>
           </div>
           
           <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: "10px" }}>
