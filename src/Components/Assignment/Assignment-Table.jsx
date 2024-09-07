@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Table, Tag, Button } from 'antd';
+import { Space, Table, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 function AssignmentTable() {
@@ -17,28 +17,6 @@ function AssignmentTable() {
       title: 'Topic',
       dataIndex: 'topic',
       // key: 'topic',
-    },
-    {
-      title: 'Tags',
-      // key: 'skillsTag',
-      dataIndex: 'skillsTag',
-      render: (_, { skillsTag }) => (
-        <>
-          {skillsTag.map((tag) => {
-            {/* let color = tag.length > 5 ? 'geekblue' : 'green'; */}
-            let color;
-            if (tag === courseNames[0]) color = 'geekblue';
-            if (tag === courseNames[1]) color = 'green';
-            if (tag === courseNames[2]) color = 'volcano';
-            if (tag === courseNames[3]) color = 'blue';
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
     },
     {
       title: 'Due Date',

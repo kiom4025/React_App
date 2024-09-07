@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Flex, Form, Input, Select, DatePicker } from 'antd';
-const { Option } = Select;
+import { Button, Flex, Form, Input, DatePicker } from 'antd';
 // const onChange = (e) => {
 //   console.log('Change:', e.target.value);
 // };
@@ -62,28 +61,6 @@ const AssignmentForm = () => {
             // resize: 'none',
           }}
         />
-      </Form.Item>
-
-      <Form.Item
-        name="skillsTag"
-        label="Skills Tag"
-        rules={[
-          {
-            required: true,
-            message: 'Please choose atleast one',
-            type: 'array',
-          },
-        ]}
-      >
-        <Select mode="multiple" >
-          <Option value="javascript">Javascript</Option>
-          <Option value="html">HTML</Option>
-          <Option value="css">CSS</Option>
-          <Option value="react">React</Option>
-          <Option value="mongodb">Mongodb</Option>
-          <Option value="git">Git</Option>
-          <Option value="vscode">Visual Studio Code (IDE)</Option>
-        </Select>
       </Form.Item>
 
       <Form.Item 

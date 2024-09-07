@@ -126,7 +126,7 @@ const CourseForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="language-Selection"
+        name="languageSelection"
         label="Language"
         rules={[
           {
@@ -144,7 +144,7 @@ const CourseForm = () => {
       </Form.Item>
 
       <Form.Item
-        name="skills-covered"
+        name="skillscovered"
         label="Skills Covered"
         rules={[
           {
