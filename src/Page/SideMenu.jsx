@@ -32,7 +32,9 @@ const { Sider } = Layout;
 const SideMenu = () => {
   const {items} =useContext(LoginContextapi);
   const [collapsed, setCollapsed] = useState(false);
-  
+  function onSelect(setValue){
+    return setValue;
+  }
   /* Start - Hightlight sidemenu
 Requirement: To change sidebar highlight
 Credits: 
@@ -54,6 +56,18 @@ Credits:
     const squares = numbers.map(number => number * number);
     console.log(squares); // Output: [1, 4, 9, 16]
  */
+
+
+  /* // this works as expected while refreshing also (Need to correct the code for this)
+    {isAdmin&&(
+      renderMenuItems.push(getItem(<NavLink to="/add-content">Add Content</NavLink>, "4", <PlusOutlined />))
+    )}; */
+
+/* 
+    const isActive = (path) => {
+      return location.pathname === path;
+    };
+     */
   const location = useLocation();
   const renderMenuItems = items.map((item) => {
     var locationValidate
@@ -64,6 +78,8 @@ Credits:
       locationValidate = parentPath === path;
     }
     else locationValidate = location.pathname === path;
+
+    onSelect(locationValidate);
     return {
       ...item,
       className: locationValidate ? 'ant-menu-item-selected' : ''
@@ -75,6 +91,7 @@ Credits:
       <Menu
         theme="dark"
         // defaultSelectedKeys={['1']} 
+        selectedKeys={onSelect}
         mode="inline"
         items={renderMenuItems} />
     </Sider>
