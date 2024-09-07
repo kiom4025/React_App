@@ -72,13 +72,24 @@ Credits:
   const renderMenuItems = items.map((item) => {
     var locationValidate
     const path = item.label.props.to;
-    const pathIndex = location.pathname.lastIndexOf('/');
+    const pathIndex = location.pathname.lastIndexOf('/'); 
+    /* The above code is to check for subpath like 'http://localhost:3000/editContent/editAssignment'
+      In this the index of '/' after editContent is found
+
+      If there is no subpath like 'http://localhost:3000/editContent'
+      Then the pathIndex value will be 0
+    */
     if (pathIndex !== 0) {
+      // The parent path is found and validation is done
       var parentPath = location.pathname.slice(0, pathIndex);
       locationValidate = parentPath === path;
     }
+    // If there is no subpath then the validation is diretly done
     else locationValidate = location.pathname === path;
 
+    /* The true/false value in the 'locationValidate' is sent to onSelect function that only returns what is sent as parameter to it.
+      This is then used in the 'selectedKeys' api parameter of the menu to make the active sidemenu component selected.
+    */
     onSelect(locationValidate);
     return {
       ...item,
