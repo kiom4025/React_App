@@ -57,17 +57,6 @@ Credits:
     console.log(squares); // Output: [1, 4, 9, 16]
  */
 
-
-  /* // this works as expected while refreshing also (Need to correct the code for this)
-    {isAdmin&&(
-      renderMenuItems.push(getItem(<NavLink to="/add-content">Add Content</NavLink>, "4", <PlusOutlined />))
-    )}; */
-
-/* 
-    const isActive = (path) => {
-      return location.pathname === path;
-    };
-     */
   const location = useLocation();
   const renderMenuItems = items.map((item) => {
     var locationValidate
