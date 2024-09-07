@@ -14,13 +14,13 @@ const items = [
             <LoginComponent />
         ),
     },
-    // {
-    //     key: '2',
-    //     label: 'Sign Up',
-    //     children: (
-    //         <RegisterComponent />
-    //     ),
-    // },
+    {
+        key: '2',
+        label: 'Sign Up',
+        children: (
+            <RegisterComponent />
+        ),
+    },
 ];
 function Loginpage() {
     return (

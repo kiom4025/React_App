@@ -4,6 +4,7 @@ import {
   Checkbox,
   Form,
   Input,
+  message,
 } from 'antd';
 const formItemLayout = {
   labelCol: {
@@ -37,8 +38,19 @@ const tailFormItemLayout = {
 };
 const RegisterComponent = () => {
   const [form] = Form.useForm();
-  const onFinish = (values) => {
+  const onReset = () => {
+    form.resetFields();
+  }
+  async function onFinish(values) {
     console.log('Received values of form: ', values);
+    await message.success("Successfully Registered!",
+      0.8,
+      () => {
+        onReset();
+        // window.location.reload(true); // false to reload from cache, true to reload from server
+      }
+    )
+
   };
   return (
     <Form
@@ -52,6 +64,21 @@ const RegisterComponent = () => {
       scrollToFirstError
     >
       <Form.Item
+        name="username"
+        label="Username"
+        // tooltip="This is unique to each user"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your username!',
+            whitespace: true,
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
         name="email"
         label="E-mail"
         rules={[
@@ -62,58 +89,6 @@ const RegisterComponent = () => {
           {
             required: true,
             message: 'Please input your E-mail!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        name="password"
-        label="Password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
-        hasFeedback
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item
-        name="confirm"
-        label="Confirm Password"
-        dependencies={['password']}
-        hasFeedback
-        rules={[
-          {
-            required: true,
-            message: 'Please confirm your password!',
-          },
-          ({ getFieldValue }) => ({
-            validator(_, value) {
-              if (!value || getFieldValue('password') === value) {
-                return Promise.resolve();
-              }
-              return Promise.reject(new Error('Password not match!'));
-            },
-          }),
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item
-        name="nickname"
-        label="Nickname"
-        tooltip="What do you want others to call you?"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your nickname!',
-            whitespace: true,
           },
         ]}
       >
@@ -156,7 +131,7 @@ const RegisterComponent = () => {
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit">
-          Register
+          Sign Up
         </Button>
       </Form.Item>
     </Form>

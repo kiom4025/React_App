@@ -74,7 +74,7 @@ function LoginComponent() {
         }}
       >
         <Button type="primary" htmlType="submit">
-          Sign In
+          Login
         </Button>
       </Form.Item>
     </Form>
