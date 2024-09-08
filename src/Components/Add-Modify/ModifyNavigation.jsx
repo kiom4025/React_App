@@ -9,32 +9,20 @@ const items = [
     icon: <DesktopOutlined />,
     children: [
       {
-        type: 'group',
-        label: 'Development',
-        children: [
-          {
-            label: <Link to="editCourses">Full Stack Development</Link>,
-            key: 'Course:1',
-          },
-          {
-            label: <Link to="editCourses">Database</Link>,
-            key: 'Course:2',
-          },
-        ],
+        label: <Link to="editCourses">Full Stack Development</Link>,
+        key: 'Course:1',
       },
       {
-        type: 'group',
-        label: 'Data Science',
-        children: [
-          {
-            label: <Link to="editCourses">Python</Link>,
-            key: 'Course:3',
-          },
-          {
-            label: <Link to="editCourses">Data Structure and Algorithms</Link>,
-            key: 'Course:4',
-          },
-        ],
+        label: <Link to="editCourses">Database</Link>,
+        key: 'Course:2',
+      },
+      {
+        label: <Link to="editCourses">Python</Link>,
+        key: 'Course:3',
+      },
+      {
+        label: <Link to="editCourses">Data Structure and Algorithms</Link>,
+        key: 'Course:4',
       },
     ],
   },
@@ -44,18 +32,12 @@ const items = [
     icon: <UserOutlined />,
     children: [
       {
-        type: 'group',
-        label: 'Development',
-        children: [
-          {
-            label: <Link to="editAssignment">Full Stack Development</Link>,
-            key: 'Task:1',
-          },
-          {
-            label: <Link to="editAssignment">Database</Link>,
-            key: 'Task:2',
-          },
-        ],
+        label: <Link to="editAssignment">Assignment 1</Link>,
+        key: 'Task:1',
+      },
+      {
+        label: <Link to="editAssignment">Assignment 2</Link>,
+        key: 'Task:2',
       },
     ],
   },
