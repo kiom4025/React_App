@@ -1,38 +1,15 @@
 import React, { useContext, useState } from 'react';
-/* import {
-  DesktopOutlined,
-  UserOutlined,
-  PlusCircleOutlined,
-  DashboardOutlined,
-} from '@ant-design/icons'; */
 import { Layout, Menu } from 'antd';
 import { useLocation } from 'react-router-dom';
-// import { Link, useLocation } from 'react-router-dom';
 import { LoginContextapi } from '../Components/Context/LoginContextapi';
 
 const { Sider } = Layout;
-/* function getItem(label, key, icon, children) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  };
-} */
-
-// const items = [
-//   getItem(<Link to="/">Dashboard</Link>, "1", <DashboardOutlined />),
-//   getItem(<Link to="/courses">Courses</Link>, '2', <DesktopOutlined />),
-//   getItem(<Link to="/assignments">Assignments</Link>, '3', <UserOutlined />),
-// ];
-
-
-// if (localStorage.getItem('isAdmin') === 'true') items.push(getItem(<Link to="/editContent">Add / Modify</Link>, '4', <PlusCircleOutlined />));
 
 const SideMenu = () => {
-  const {items} =useContext(LoginContextapi);
+  const { items } = useContext(LoginContextapi);
   const [collapsed, setCollapsed] = useState(false);
-  function onSelect(setValue){
+
+  function currentSelection(setValue) {
     return setValue;
   }
   /* Start - Hightlight sidemenu
@@ -61,25 +38,22 @@ Credits:
   const renderMenuItems = items.map((item) => {
     var locationValidate
     const path = item.label.props.to;
-    const pathIndex = location.pathname.lastIndexOf('/'); 
-    /* The above code is to check for subpath like 'http://localhost:3000/editContent/editAssignment'
-      In this the index of '/' after editContent is found
 
-      If there is no subpath like 'http://localhost:3000/editContent'
-      Then the pathIndex value will be 0
-    */
+    // The lastIndexOf('/') is to check for subpath like 'http://localhost:3000/editContent/editAssignment'
+    // In this the index of '/' after editContent is found
+    // If there is no subpath like 'http://localhost:3000/editContent'
+    // Then the pathIndex value will be 0
+    // If there is no subpath then the validation is diretly done in else
+    const pathIndex = location.pathname.lastIndexOf('/');
     if (pathIndex !== 0) {
-      // The parent path is found and validation is done
       var parentPath = location.pathname.slice(0, pathIndex);
       locationValidate = parentPath === path;
     }
-    // If there is no subpath then the validation is diretly done
     else locationValidate = location.pathname === path;
 
-    /* The true/false value in the 'locationValidate' is sent to onSelect function that only returns what is sent as parameter to it.
-      This is then used in the 'selectedKeys' api parameter of the menu to make the active sidemenu component selected.
-    */
-    onSelect(locationValidate);
+    // The true/false value in the 'locationValidate' is sent to currentSelection function that only returns what is sent as parameter to it. which inturn redenders the menu component
+    // This is then used in the 'selectedKeys' api parameter of the menu to make the active sidemenu component selected.
+    currentSelection(locationValidate);
     return {
       ...item,
       className: locationValidate ? 'ant-menu-item-selected' : ''
@@ -91,7 +65,7 @@ Credits:
       <Menu
         theme="dark"
         // defaultSelectedKeys={['1']} 
-        selectedKeys={onSelect}
+        selectedKeys={currentSelection}
         mode="inline"
         items={renderMenuItems} />
     </Sider>

@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { DownOutlined, SettingOutlined, LogoutOutlined, CustomerServiceOutlined } from '@ant-design/icons';
 import { Dropdown, Space, Typography, message } from 'antd';
 import { LoginContextapi } from '../Context/LoginContextapi';
+import { useNavigate } from 'react-router-dom';
 const { Text } = Typography;
 
 
 
 function UserDropdown() {
+  const navigate = useNavigate();
   const { currentUser, Logout } = useContext(LoginContextapi);
   const items = [
     {
@@ -39,6 +41,7 @@ function UserDropdown() {
         break;
 
       case '3':
+        navigate('/');
         Logout();
         break;
 

@@ -35,10 +35,10 @@ export function LoginProvider({ children }) {
     function modifySidemenu(username) {
         if (username === 'admin') {
             var newSidemenuList = [...items_Default, getItem(<Link to="/editContent">Add / Modify</Link>, '4', <PlusCircleOutlined />)]
-            console.log(newSidemenuList);
+            // console.log(newSidemenuList);
             return newSidemenuList;
         } else {
-            console.log(items_Default);
+            // console.log(items_Default);
             return items_Default;
         }
     }
